@@ -4,6 +4,7 @@ const { connectDatabase } = require("./database/database")
 const app = express()
 
 const authRoute = require("./routes/authRoute")
+const serviceRoute =require("./routes/serviceRoute")
 
 
 
@@ -26,6 +27,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use("",authRoute)
+app.use("/api/services",serviceRoute)
 
 
 
