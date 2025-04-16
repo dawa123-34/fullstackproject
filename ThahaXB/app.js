@@ -2,6 +2,8 @@ const express =require("express")
 const { connectDatabase } = require("./database/database")
 
 const app = express()
+const cors =require("cors")
+
 
 const authRoute = require("./routes/authRoute")
 const serviceRoute =require("./routes/serviceRoute")
@@ -10,7 +12,9 @@ const serviceRoute =require("./routes/serviceRoute")
 
 require("dotenv").config()
 
-
+app.use(cors({
+    origin :"http://localhost:5173"
+}))
 app.use(express.json())
 
 

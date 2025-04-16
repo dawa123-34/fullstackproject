@@ -29,7 +29,7 @@ exports.getAllServices = async (req, res) => {
 
   res.status(200).json({
     message: "Services fetched successfully",
-    services,
+    services : services,
   });
 };
 
