@@ -7,9 +7,9 @@ import Navbar from './globals/components/navbar/Navbar'
 const App = () => {
   return (
     <>
-    <Navbar/>
+    
     <RouterProvider router={router}/>
-    <Footer/>
+    
    
     </>
   )
