@@ -8,6 +8,12 @@ import AdminLayout from "./src/layouts/AdminLayout";
 import CreateService from "./src/admin/adminPages/CreateService";
 import ShowServices from "./src/admin/adminPages/ShowServices";
 import UpdateService from "./src/admin/adminPages/UpdateService";
+import LoginPage from "./src/auth/pages/LoginPage";
+import ProtectedRoute from "./src/auth/component/ProtectedRoute";
+import ForgotPasswordPage from "./src/auth/pages/ForgotPasswordPage";
+import VerifyOtpPage from "./src/auth/pages/VerifyOtpPage";
+import ResetPasswordPage from "./src/auth/pages/ResetPasswordPage";
+import RegisterAdminPage from "./src/auth/pages/RegisterAdminPage";
 
 const router = createBrowserRouter([
   {
@@ -20,14 +26,25 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminLayout />,
+    element: (
+      <ProtectedRoute>
+    <AdminLayout />,
+    </ProtectedRoute>
+    ),
     children: [
       { path: "", element: <Admin /> },
       { path: "createService", element: <CreateService /> },
       { path: "showServices", element: <ShowServices/>},
-      { path: "updateService/:id", element: <UpdateService/>}
+      { path: "updateService/:id", element: <UpdateService/>},
+      
     ],
   },
+
+  { path: "/login", element: <LoginPage/>},
+  { path: "/forgotPassword", element: <ForgotPasswordPage/>},
+  { path: "/verifyOtp", element: <VerifyOtpPage/>},
+  { path: "/resetPassword", element: <ResetPasswordPage/>},
+  { path: "/registerAdmin", element: <RegisterAdminPage/>}
 ]);
 
-export default router; // ✅ Add this line!
+export default router; 
