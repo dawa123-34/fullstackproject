@@ -8,7 +8,6 @@ const PublicLayout = () => {
     <div>
         <Navbar/>
         <Outlet/>
-        <Footer/>
     </div>
   )
 }

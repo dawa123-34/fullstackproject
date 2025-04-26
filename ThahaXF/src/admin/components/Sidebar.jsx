@@ -1,60 +1,70 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+  const navigation = [
+    { name: "Dashboard", href: "/admin" },
+    { name: "Show Services", href: "/admin/showServices" },
+    { name: "Add Service", href: "/admin/createService" },
+    { name: "Register", href: "/registerAdmin" },
+  ];
 
   return (
-    <div>
-      {/* Mobile Top Navbar */}
-      <div className="md:hidden fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center justify-between px-4 py-3">
-        <button
-          onClick={toggleSidebar}
-          className="text-gray-800 dark:text-white focus:outline-none"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+    <>
+      <div className="md:hidden bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between px-4 py-3">
+      <span className="text-lg font-bold text-gray-900 dark:text-white">ThahaX</span>
+      <button
+        onClick={() => setIsOpen(true)}
+        className="text-gray-800 dark:text-white focus:outline-none"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    {/* Sidebar */}
+    <aside
+      className={`bg-[#152238] w-64 p-6 ${
+        isOpen ? "block" : "hidden"
+      } md:block fixed md:static inset-y-0 left-0 z-50 md:z-0`}
+    >
+      {/* Logo */}
+      <div className="hidden md:flex items-center mb-8">
+        <span className="text-2xl font-bold text-white">ThahaX</span>
       </div>
 
-      {/* Sidebar */}
-      <aside className={`w-64 h-screen bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700 fixed top-0 left-0 z-40 transform transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}>
-        <div className="h-full p-4 overflow-y-auto pt-16 md:pt-4">
-          <div className="flex items-center mb-6">
-            <span className="text-xl font-bold text-gray-900 dark:text-white">ThahaX</span>
-          </div>
+      {/* Navigation */}
+      <ul className="space-y-4">
+        {navigation.map((item) => (
+          <li key={item.name}>
+            <Link
+              to={item.href}
+              className={`flex items-center p-3 rounded-lg transition-colors duration-300 ${
+                location.pathname === item.href
+                  ? "bg-[#0f172a] text-white"
+                  : "text-white hover:bg-[#1e293b]"
+              }`}
+              onClick={() => setIsOpen(false)}
+            >
+              {item.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </aside>
 
-          {/* Sidebar Links */}
-          <ul className="space-y-2">
-            <li>
-              <Link to="/admin" className="flex items-center p-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded">
-                Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link to="/admin/showServices" className="flex items-center p-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded">
-                Show Services
-              </Link>
-            </li>
-            <li>
-              <Link to="/admin/createService" className="flex items-center p-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded">
-                Add Service
-              </Link>
-            </li>
-            <li>
-              <Link to="/registerAdmin" className="flex items-center p-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded">
-                Register
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </aside>
-    </div>
+    {/* Mobile backdrop */}
+    {isOpen && (
+      <div
+        className="fixed inset-0 bg-black bg-opacity-40 z-40 md:hidden"
+        onClick={() => setIsOpen(false)}
+      ></div>
+    )}
+    </>
   );
 };
 

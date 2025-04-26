@@ -1,15 +1,14 @@
-// src/layouts/AdminLayout.jsx
 import React from "react";
-import Sidebar from "../admin/components/Sidebar"; // adjust path if needed
+import Sidebar from "../admin/components/Sidebar"; 
 import { Outlet } from "react-router-dom";
 
 const AdminLayout = () => {
   return (
-    <div className="flex">
-      <Sidebar />
-      <main className="flex-1 ml-64 p-4">
+    <div className="flex min-h-screen"> 
+      <Sidebar /> 
+      <div className="flex-1 ml-0 md:ml-64 p-6 bg-gray-50"> 
         <Outlet />
-      </main>
+      </div>
     </div>
   );
 };
