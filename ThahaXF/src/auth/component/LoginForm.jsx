@@ -66,7 +66,7 @@ const LoginForm = () => {
               />
             </div>
             <div className="flex items-center justify-between">
-              <a href="/forgot-password" className="text-sm text-blue-500 hover:underline">
+              <a href="/forgotPassword" className="text-sm text-blue-500 hover:underline">
                 Forgot password?
               </a>
             </div>

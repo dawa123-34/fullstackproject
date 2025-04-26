@@ -98,7 +98,7 @@ exports.forgotPassword = async (req, res) => {
 
         const otp = Math.floor(1000 + Math.random() * 9000);
         userExist[0].otp = otp;
-        userExist[0].otpExpiresAt = Date.now() + 1 * 60 * 1000;
+        userExist[0].otpExpiresAt = Date.now() + 2 * 60 * 1000;
         await userExist[0].save();
 
         await sendEmail({
@@ -140,12 +140,15 @@ exports.verifyOtp = async (req, res) => {
                 message: "OTP has expired"
             });
         }
+        // ✅ ADD THESE TWO LINES HERE
+        console.log("Stored OTP:", userExist[0].otp);
+        console.log("Received OTP:", otp);
 
-        if (userExist[0].otp !== otp) {
+        if (userExist[0].otp.toString() !== otp.toString()) {
             return res.status(400).json({
-                message: "Invalid otp"
+              message: "Invalid otp"
             });
-        } else {
+          } else {
             userExist[0].otp = undefined;
             userExist[0].otpExpiresAt = undefined;
             userExist[0].isOtpVerified = true;

@@ -19,7 +19,7 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            {/* Mobile menu button */}
+            
             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
@@ -55,7 +55,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Right-side section (now empty) */}
+          
           <div className="sm:ml-6" />
         </div>
       </div>

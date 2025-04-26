@@ -47,7 +47,7 @@ const Sidebar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/register" className="flex items-center p-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded">
+              <Link to="/registerAdmin" className="flex items-center p-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded">
                 Register
               </Link>
             </li>
