@@ -72,3 +72,44 @@ exports.deleteService = async (req, res) => {
     message: "Service deleted successfully",
   });
 };
+
+// Get total number of services
+exports.getTotalServices = async (req, res) => {
+  try {
+    const total = await Service.countDocuments();
+    res.status(200).json({ total });
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to fetch total services",
+      error: error.message,
+    });
+  }
+};
+
+// Search services by service name
+exports.searchServices = async (req, res) => {
+  const { keyword } = req.query;
+
+  try {
+    const services = await Service.find({
+      serviceName: { $regex: keyword, $options: "i" }  // case-insensitive search
+    });
+
+    if (services.length === 0) {
+      return res.status(404).json({
+        message: "No matching services found",
+      });
+    }
+
+    res.status(200).json({
+      message: "Services fetched successfully",
+      services: services,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to search services",
+      error: error.message,
+    });
+  }
+};
+

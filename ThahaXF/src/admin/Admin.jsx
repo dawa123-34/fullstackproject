@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import TotalServices from './components/TotalServices';
 
 const Admin = () => {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const Admin = () => {
       {/* Main Content */}
       <div className="flex-1 pl-6 pr-2 pt-6 pb-6"> {/* Less padding on the left */}
         <h1 className="text-2xl font-semibold text-gray-800">Admin Dashboard</h1>
+        <TotalServices/>
       </div>
     </div>
   );
