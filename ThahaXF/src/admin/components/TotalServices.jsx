@@ -9,7 +9,7 @@ const TotalServices = () => {
   useEffect(() => {
     const fetchTotalServices = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/services/service/total/count`, {
+        const response = await axios.get('http://localhost:3000/api/services/service/total/count', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`, // Include token if needed
           }
