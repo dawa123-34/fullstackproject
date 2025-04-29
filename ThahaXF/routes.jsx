@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./src/pages/home/Home";
 import About from "./src/pages/about/About";
-import SingleService from "./src/pages/singleService/singleService";
+import SingleService from "./src/pages/singleService/SingleService";
 import Admin from "./src/admin/Admin";
 import PublicLayout from "./src/layouts/PublicLayout"; 
 import AdminLayout from "./src/layouts/AdminLayout";
