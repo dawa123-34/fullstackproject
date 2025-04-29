@@ -12,7 +12,7 @@ const CreateServiseForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/api/services/create', {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/services/create`, {
         serviceName,
         requiredDocuments,
       });

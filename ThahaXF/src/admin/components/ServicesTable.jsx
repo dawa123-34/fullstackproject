@@ -9,7 +9,7 @@ const ServicesTable = () => {
   // Fetch services from the backend
   const fetchServices = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/services/service');
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/services/service`);
       setServices(response.data.services);
     } catch (error) {
       console.error("Error fetching services:", error);
@@ -35,7 +35,7 @@ const ServicesTable = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:3000/api/services/service/${id}`);
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/services/service/${id}`);
       setServices(services.filter(service => service._id !== id)); // Update the list without reloading the page
       alert("Service deleted successfully.");
     } catch (error) {

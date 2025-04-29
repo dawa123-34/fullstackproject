@@ -13,7 +13,7 @@ const ResetPasswordPage = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/resetPassword', {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/resetPassword`, {
         email,
         newPassword,
         confirmPassword,

@@ -10,7 +10,7 @@ const Home = () => {
   // Function to fetch services
   const fetchServices = async (keyword = "") => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/services/service/search?keyword=${keyword}`);
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/services/service/search?keyword=${keyword}`);
       if (response.data.services.length === 0) {
         setErrorMessage("No services found matching your search"); // Set error message if no services found
       } else {

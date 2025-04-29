@@ -8,7 +8,7 @@ const SingleService = () => {
 
   const fetchSingleService = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/services/service/${id}`);
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/services/service/${id}`);
       if (response.status === 200) {
         setService(response.data.service);
       }

@@ -12,7 +12,7 @@ const UpdateService = () => {
   useEffect(() => {
     const fetchService = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/services/service/${id}`);
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/services/service/${id}`);
         setServiceName(res.data.service.serviceName);
         setRequiredDocuments(res.data.service.requiredDocuments);
       } catch (err) {
@@ -26,7 +26,7 @@ const UpdateService = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:3000/api/services/service/${id}`, {
+      await axios.patch(`${import.meta.env.VITE_BACKEND_URL}/api/services/service/${id}`, {
         serviceName,
         requiredDocuments,
       });
