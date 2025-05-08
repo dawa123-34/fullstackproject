@@ -26,7 +26,7 @@ const UpdateService = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`${import.meta.env.VITE_BACKEND_URL}/api/services/service/${id}`, {
+      await axios.patch(`http://localhost:3000/api/services/service/${id}`, {
         serviceName,
         requiredDocuments,
       });

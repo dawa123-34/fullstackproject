@@ -18,7 +18,7 @@ const RegisterAdminPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/register`, formData)
+      const response = await axios.post(`http://localhost:3000/register`, formData)
       alert(response.data.message)
       navigate('/admin') // navigate after success
     } catch (error) {

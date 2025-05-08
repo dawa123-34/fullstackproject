@@ -6,7 +6,7 @@ const Header = () => {
     <header className="bg-gradient-to-r from-blue-600 to-blue-400 text-white py-6 md:py-8 shadow-lg relative">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-center relative px-4">
         
-        {/* Logo */}
+        
         <div className="mb-4 md:mb-0 md:absolute md:left-6 flex items-center">
           <img 
             src={ThahaXLogo}
@@ -15,7 +15,7 @@ const Header = () => {
           />
         </div>
 
-        {/* Title and Tagline */}
+        
         <div className="text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-wide text-white mb-2">
             ThahaX

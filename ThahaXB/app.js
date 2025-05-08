@@ -13,7 +13,7 @@ const serviceRoute =require("./routes/serviceRoute")
 require("dotenv").config()
 
 app.use(cors({
-    origin: ["http://localhost:5173", "https://thahax-platform.vercel.app"]
+    origin: "http://localhost:5173"
 }));
 app.use(express.json())
 

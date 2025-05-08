@@ -34,7 +34,7 @@ const VerifyOtpPage = () => {
     }
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/verifyOtp`, {
+      const response = await axios.post(`http://localhost:3000/verifyOtp`, {
         email,
         otp,
       });
